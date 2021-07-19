@@ -157,6 +157,7 @@ else{
 for(var i=0;i<hScore.length;i++){
   if(hScore[i].scores <score){
     hScore[i].names=name;
+    hScore[i].scores=score;
   }
 }
 console.log("Highest scores:");
