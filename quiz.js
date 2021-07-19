@@ -1,5 +1,15 @@
 var readLineSync=require('readline-sync');
 var score=0;
+var hScore=[
+  {
+    names:"Bob",
+    scores:20
+  },
+  {
+    names:"Don",
+    scores:16
+  }
+]
 var chalk=require('chalk');
 var round_1=[
   {
@@ -108,8 +118,21 @@ function quiz(question,answer){
   }
 }
 console.log(chalk.blue.bgRed.bold('Quiz...'));
+var name=readLineSync.question(chalk.bgRed("May I know Your Name:"));
 for(var i=0;i<round_1.length;i++){
   quiz(round_1[i].question,round_1[i].answer);
+}
+console.log(chalk.blue.bgRed.bold('Bonus Question..'))
+  animals = ['Lion', 'Elephant', 'Crocodile', 'Giraffe', 'Hippo'];
+  var index = readLineSync.keyInSelect(animals, 'Which animal does Elena Like?');
+if(index+1==4){
+  console.log(chalk.blue("Correct"));
+  score=score+2;
+  readLineSync.question();
+}
+else{
+  console.log("Wrong...");
+  readLineSync.question();
 }
 console.log(chalk.red('Score:')+score);
 if(score>=5){
@@ -131,4 +154,14 @@ if(score>=10){
 else{
   console.log("Not Eligible for Round-3");
 }
-console.log(chalk.green('Score:')+score);
+for(var i=0;i<hScore.length;i++){
+  if(hScore[i].scores <score){
+    hScore[i].names=name;
+  }
+}
+console.log("Highest scores:");
+for(var i=0;i<hScore.length;i++){
+  console.log(hScore[i].names+":"+hScore[i].scores);
+}
+console.log("If you are here ping me:aabc@gmail.com");
+console.log(chalk.green(' Your Score:')+score);
