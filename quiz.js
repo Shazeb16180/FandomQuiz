@@ -3,11 +3,11 @@ var score=0;
 var hScore=[
   {
     names:"Bob",
-    scores:20
+    scores:16
   },
   {
     names:"Don",
-    scores:16
+    scores:20
   }
 ]
 var chalk=require('chalk');
@@ -108,7 +108,7 @@ function quiz(question,answer){
     score++;
   }
   else{
-    console.log("Wrong");
+    console.log("Wrong,Score Reduced");
     if(score==0){
       score=0
     }
@@ -125,7 +125,7 @@ for(var i=0;i<round_1.length;i++){
 console.log(chalk.blue.bgRed.bold('Bonus Question..'))
   animals = ['Lion', 'Elephant', 'Crocodile', 'Giraffe', 'Hippo'];
   var index = readLineSync.keyInSelect(animals, 'Which animal does Elena Like?');
-if(index+1==4){
+if(!(animals[index].localeCompare("Lion"))){
   console.log(chalk.blue("Correct"));
   score=score+2;
   readLineSync.question();
@@ -158,6 +158,7 @@ for(var i=0;i<hScore.length;i++){
   if(hScore[i].scores <score){
     hScore[i].names=name;
     hScore[i].scores=score;
+    break;
   }
 }
 console.log("Highest scores:");
