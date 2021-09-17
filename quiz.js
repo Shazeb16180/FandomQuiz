@@ -125,14 +125,18 @@ for(var i=0;i<round_1.length;i++){
 console.log(chalk.blue.bgRed.bold('Bonus Question..'))
   animals = ['Lion', 'Elephant', 'Crocodile', 'Giraffe', 'Hippo'];
   var index = readLineSync.keyInSelect(animals, 'Which animal does Elena Like?');
-if(!(animals[index].localeCompare("Lion"))){
+ // console.log(index);
+  if(Number(index)==Number(-1)){
+    console.log("Cancelling");
+  }
+else if(!(animals[index].localeCompare("Lion"))){
   console.log(chalk.blue("Correct"));
   score=score+2;
- // readLineSync.question();
+//  readLineSync.question(" ");
 }
 else{
   console.log("Wrong...");
-  //readLineSync.question();
+  //readLineSync.question(" ");
 }
 console.log(chalk.red('Score:')+score);
 if(score>=5){
