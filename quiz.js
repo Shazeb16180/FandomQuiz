@@ -128,11 +128,11 @@ console.log(chalk.blue.bgRed.bold('Bonus Question..'))
 if(!(animals[index].localeCompare("Lion"))){
   console.log(chalk.blue("Correct"));
   score=score+2;
-  readLineSync.question();
+ // readLineSync.question();
 }
 else{
   console.log("Wrong...");
-  readLineSync.question();
+  //readLineSync.question();
 }
 console.log(chalk.red('Score:')+score);
 if(score>=5){
